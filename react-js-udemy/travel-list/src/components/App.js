@@ -9,6 +9,10 @@ const initialItems = [
 export default function App() {
   const [items, setItems] = useState(initialItems);
 
+  function handleDeleteItem(id){
+    setItems(items => items.filter(item => item.id !== id));
+  }
+
   function handleAddItems(item) {
     setItems(items => [...items, item]);
   }
@@ -17,7 +21,7 @@ export default function App() {
     <div className="app">
       <Logo />
       <Form onAddItems = {handleAddItems}/>
-      <PackingList items = {items}/>
+      <PackingList items = {items} onDeleteItem = {handleDeleteItem}/>
       <Stats />
     </div>
   );
@@ -65,25 +69,25 @@ function Form({onAddItems}) {
     </form>
   );
 }
-function PackingList({items}) {
+function PackingList({items, onDeleteItem}) {
   return (
     <div className="list">
       <ul>
         {items.map((item) => {
-          return <Item item={item} key={item.id} />;
+          return <Item item={item} key={item.id} onDeleteItem = {onDeleteItem}/>;
         })}
       </ul>
     </div>
   );
 }
 
-function Item({ item }) {
+function Item({ item , onDeleteItem}) {
   return (
     <li>
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
         {item.quantity} {item.description}
       </span>
-      <button>❌</button>
+      <button onClick = {() => onDeleteItem(item.id)}>❌</button>
     </li>
   );
 }
