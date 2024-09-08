@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Main<rewards-common>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "io.spring.learning.Main",
+            "projectName": "rewards-common",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
