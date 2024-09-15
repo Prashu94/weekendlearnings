@@ -28,22 +28,26 @@ export default function App() {
 }
 
 function Accordion({faqs}) {
+  const [currentOpen, setIsOpen] = React.useState(null);
   return (
     <div className = "accordion">
       {
         faqs.map((e1, i) => {
-          return <AccordianItem key = {i} data = {e1} num = {i}/>
+          return <AccordianItem curOpen = {currentOpen} onOpen={setIsOpen} key = {i} data = {e1} num = {i}/>
         })
       }
     </div>
   );
 }
 
-function AccordianItem({data, num}) {
-  const [isOpen, setIsOpen] = React.useState(false);
-  
+function AccordianItem({data, num, curOpen, onOpen}) {
+  //const [isOpen, setIsOpen] = React.useState(false);
+  const isOpen = num === curOpen;
+
+
   function handleToggle() {
-    setIsOpen((isOpen) => !isOpen);
+    // setIsOpen((isOpen) => !isOpen);
+    onOpen(isOpen ? null : num);
   }
 
   return (
