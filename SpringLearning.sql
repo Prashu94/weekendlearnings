@@ -218,3 +218,10 @@ CREATE TABLE `taco_order_tacos` (
   CONSTRAINT `FKfwvqtnjfview9e5f7bfqtd1ns` FOREIGN KEY (`tacos_id`) REFERENCES `taco` (`id`),
   CONSTRAINT `FKs8yteduju5tndbivxbmdrbsyy` FOREIGN KEY (`taco_order_id`) REFERENCES `taco_order` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+ create keyspace tacocloud
+   ... with replication={'class':'SimpleStrategy', 'replication_factor':1}
+   ... and durable_writes=true;
+   
+docker network create cassandra-net
+docker run --name my-cassandra --network cassandra-net -p 9042:9042 -d cassandra:latest
