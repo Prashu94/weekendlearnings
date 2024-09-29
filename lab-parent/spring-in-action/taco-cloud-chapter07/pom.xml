@@ -9,14 +9,12 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <packaging>pom</packaging>
+    <artifactId>taco-cloud-chapter07</artifactId>
 
-    <artifactId>taco-cloud-chapter04</artifactId>
-
-    <modules>
-        <module>tacos-sd-mongodb</module>
-        <module>taco-sd-cassandra</module>
-    </modules>
-
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
 </project>

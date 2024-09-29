@@ -9,14 +9,11 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
+    <artifactId>taco-cloud-chapter05</artifactId>
     <packaging>pom</packaging>
 
-    <artifactId>taco-cloud-chapter04</artifactId>
-
     <modules>
-        <module>tacos-sd-mongodb</module>
-        <module>taco-sd-cassandra</module>
+        <module>taco-cloud</module>
     </modules>
-
 
 </project>
