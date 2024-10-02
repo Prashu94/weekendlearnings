@@ -1,0 +1,43 @@
+spring:
+  data:
+    rest:
+      base-path: /data-api
+  security:
+    user:
+      name: buzz
+      password: infinity
+  datasource:
+    url: jdbc:mysql://localhost:3306/springdatajpa
+    username: prashant
+    password: admin123@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+taco:
+  orders:
+    pageSize: 10
+
+
+  discount:
+    codes:
+      abcdef: 10
+
+---
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:mysql://localhost:3306/springdatajpaprod
+    username: prashant
+    password: admin123@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+logging:
+  level:
+    tacos: WARN
