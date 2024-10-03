@@ -15,5 +15,6 @@
     <modules>
         <module>tacocloud</module>
         <module>auth-server</module>
+        <module>tacocloud-admin</module>
     </modules>
 </project>
